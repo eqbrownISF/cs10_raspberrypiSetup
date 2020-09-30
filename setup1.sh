@@ -10,6 +10,9 @@ sudo apt full-upgrade
 
 echo "--python3 version--"
 python3 -version
+alias python = python3
+echo "--python version--"
+python --version
 
 #############
 #Install and Updates pip
