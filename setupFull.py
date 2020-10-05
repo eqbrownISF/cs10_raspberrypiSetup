@@ -51,7 +51,7 @@ def wgetFiles(scriptList,client):
 
     
     for script in scriptList:
-        wget_command = "wget https://raw.githubusercontent.com/eqbrownISF/cs10_raspberrypiSetup/master/{}".format(script)
+        wget_command = "wget https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/{}".format(script)
         
         runCommand(wget_command,client)
         scriptInit_command = "sudo chmod +x {}".format(script)
@@ -86,7 +86,8 @@ def main():
         print("\n -------------SET UP--------------")
         print("1. Setup 1: Updating Raspberrypi, pip, rmate")
         print("2. Setup 2: Python3.8")
-        print("3. Download Setup files")
+	print("3. Setup 3: Mesh Network")
+        print("4. Download Setup files")
         print("//Press any other key to exit//\n")
 
         option = input("Enter option: ")
@@ -119,8 +120,10 @@ def main():
                 elif int(option) ==3:
                     break
                 
-
-        elif int(option) == 3:
+	elif int(option) == 3:
+		runFile_command_3 = runFile_command.format(scriptList[3])
+		runCommand(runFile_command_3,client)
+        elif int(option) == 4:
             wgetFiles(scriptList,client)
 
         else:
