@@ -1,0 +1,17 @@
+#!/bin/bash
+# Remove wlan0 network interface config
+WLAN=/etc/network/interfaces.d/wlan0
+if test -f "$WLAN" && ! grep -Fxq "rpi-mesh" "$WLAN" 
+then
+	sudo cp /etc/network/interfaces.d/wlan0 /etc/network/interfaces.d/wlan0.backup
+	sudo rm /etc/network/interfaces.d/wlan0
+fi
+
+# Allow DHCPCD to manage interfaces
+sudo sed -i "/denyinterfaces wlan0 eth0 bat0/d" /etc/dhcpcd.conf
+
+# Create crontab to schedule hotspot script
+if ! crontab -l | grep -Fxq "# Automating hotspot switching for cs10"
+then
+	crontab -l | { cat; echo "# Automating hotspot switching for cs10"; echo "*/5 * * * * sudo usr/bin/autohotspotN >/dev/null 2>&1"; } | crontab - 
+fi
