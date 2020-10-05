@@ -51,7 +51,7 @@ def wgetFiles(scriptList,client):
 
     
     for script in scriptList:
-        wget_command = "wget https://raw.githubusercontent.com/eqbrownISF/cs10_raspberrypiSetup/master/{}".format(script)
+        wget_command = "wget https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/{}".format(script)
         
         runCommand(wget_command,client)
         scriptInit_command = "sudo chmod +x {}".format(script)
@@ -79,7 +79,7 @@ def main():
         exit()
 
     #set up variable init 
-    scriptList = ["setup1.sh","setup2a.sh","setup2b.sh"]
+    scriptList = ["setup1.sh","setup2a.sh","setup2b.sh","setup3.sh"]
     runFile_command = "yes | ./{}"
 
     while True:
