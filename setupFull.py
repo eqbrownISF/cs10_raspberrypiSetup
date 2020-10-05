@@ -57,7 +57,12 @@ def wgetFiles(scriptList,client):
         scriptInit_command = "sudo chmod +x {}".format(script)
         runCommand(scriptInit_command, client)
     
-    
+def wgetFile(file,client):
+    wget_command = "wget https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/{}".format(file)
+        
+    runCommand(wget_command,client)
+    scriptInit_command = "sudo chmod +x {}".format(file)
+    runCommand(scriptInit_command, client)
 
 
 def main():
@@ -79,14 +84,14 @@ def main():
         exit()
 
     #set up variable init 
-    scriptList = ["setup1.sh","setup2a.sh","setup2b.sh","setup3.sh"]
+    scriptList = ["setup1.sh","setup2a.sh","setup2b.sh","setup3.sh","removeFiles.sh"]
     runFile_command = "yes | ./{}"
 
     while True:
         print("\n -------------SET UP--------------")
         print("1. Setup 1: Updating Raspberrypi, pip, rmate")
         print("2. Setup 2: Python3.8")
-	print("3. Setup 3: Mesh Network")
+        print("3. Setup 3: Mesh Network")
         print("4. Download Setup files")
         print("//Press any other key to exit//\n")
 
@@ -120,10 +125,11 @@ def main():
                 elif int(option) ==3:
                     break
                 
-	elif int(option) == 3:
-		runFile_command_3 = runFile_command.format(scriptList[3])
-		runCommand(runFile_command_3,client)
+        elif int(option) == 3:
+            runFile_command_3 = runFile_command.format(scriptList[3])
+            runCommand(runFile_command_3,client)
         elif int(option) == 4:
+            wgetFile(scriptList[4])
             wgetFiles(scriptList,client)
 
         else:
