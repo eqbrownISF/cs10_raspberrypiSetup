@@ -33,14 +33,14 @@ def runCommand(command, client):
 
     err = stderr.read().decode()
     if err:
-        print("--Errors--")
+        print("--READ OUT--")
         print(err)
 
 def setup_sshTest(hostSuffix):
     #Changes your ssh config to the given raspberry pi host name
 
     os.system("echo "" > ~/.ssh/config")
-    sshString = "printf 'Host raspberrypi-{}\n\tRemoteForward 52698 localhost:52698\n\tUser user' >> ~/.ssh/config".format(hostSuffix)
+    sshString = "printf 'Host {}\n\tRemoteForward 52698 localhost:52698\n\tUser user' >> ~/.ssh/config".format(hostSuffix)
     os.system(sshString)
 
     print("--Initialized your ssh config to test ssh with the given raspberry pi--")
@@ -64,16 +64,33 @@ def wgetFile(file,client):
     scriptInit_command = "sudo chmod +x {}".format(file)
     runCommand(scriptInit_command, client)
 
+def sshHostname():
+    print("\n -------------HOSTNAME INIT--------------")
+    print("1. Raspberrypi-X")
+    print("2. IP address\n")
+
+    option = input("Enter option: ")
+
+    if int(option) == 1:
+        hostSuffix = input("Enter Hostname Suffix: ")
+        hostname = "raspberrypi-{}".format(hostSuffix)
+
+    elif int(option) == 2:
+        hostname = input("Enter IP address: ")
+
+    return hostname
+        
+
 
 def main():
     #raspberry pi admin init 
-    hostSuffix = input("Enter Hostname Suffix: ")
-    hostname = "raspberrypi-{}".format(hostSuffix)
     username = "pi"
     password = "cs10_2020_teacher"
+    hostname = sshHostname()
+    print(hostname)
 
     #Set up ssh config for ssh testing
-    setup_sshTest(hostSuffix)
+    setup_sshTest(hostname)
 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -129,8 +146,12 @@ def main():
             runFile_command_3 = runFile_command.format(scriptList[3])
             runCommand(runFile_command_3,client)
         elif int(option) == 4:
-            wgetFile(scriptList[4])
-            wgetFiles(scriptList,client)
+            #removes files 
+            wgetFile(scriptList[4],client)
+            runFile_command_4 = runFile_command.format(scriptList[4])
+            runCommand(runFile_command_4,client)
+
+            wgetFiles(scriptList[0:4],client)
 
         else:
             break
