@@ -1,0 +1,10 @@
+[Unit]
+Description=Reset wlan0 interface, DHCPCD, and cron scheduling to accomodate wifi hotspot switching
+Before=dhcpcd.service autohotspotN.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/setup-hotspot-switching
+
+[Install]
+WantedBy=multi-user.target
