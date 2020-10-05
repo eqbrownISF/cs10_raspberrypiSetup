@@ -79,7 +79,7 @@ def main():
         exit()
 
     #set up variable init 
-    scriptList = ["setup1.sh","setup2a.sh","setup2b.sh"]
+    scriptList = ["setup1.sh","setup2a.sh","setup2b.sh","setup3.sh"]
     runFile_command = "yes | ./{}"
 
     while True:
