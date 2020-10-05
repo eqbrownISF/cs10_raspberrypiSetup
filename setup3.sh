@@ -10,8 +10,8 @@ sudo apt-get install -y batctl
 
 echo "-- Setting up batman-adv mesh networking --"
 mkdir -p ~/bin
-sudo curl -o ~/bin/wlan0.mesh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/raw/master/mesh-network/wlan0.mesh
-sudo curl -o ~/bin/setup-mesh-network.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/raw/master/mesh-network/setup-mesh-network.sh
+sudo curl -o ~/bin/wlan0.mesh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/wlan0.mesh
+sudo curl -o ~/bin/setup-mesh-network.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/setup-mesh-network.sh
 sudo curl -o ~/bin/start-batman-adv.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/raw/master/mesh-network/start-batman-adv.sh
 chmod +x start-batman.sh
 sudo curl -o /etc/bat-hosts https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/raw/master/mesh-network/bat-hosts
