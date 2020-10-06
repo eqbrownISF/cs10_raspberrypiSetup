@@ -37,3 +37,9 @@ sudo ifup wlan0
 
 # Start batman adv interfaces
 $HOME/bin/start-batman-adv.sh
+
+# Setup server for visualizing network
+sleep 10
+sudo alfred -i bat0 -m -p 1 &
+sleep 10
+sudo batadv-vis -i bat0 -s &
