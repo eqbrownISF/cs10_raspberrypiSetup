@@ -9,7 +9,7 @@ then
 		sudo cp /etc/network/interfaces.d/wlan0.mesh /etc/network/interfaces.d/wlan0
 	fi
 else
-	sudo cp $HOME/bin/wlan0.mesh /etc/network/interfaces.d/wlan0
+	sudo cp /usr/local/bin/cs10-mesh-network/wlan0.mesh /etc/network/interfaces.d/wlan0
 fi
 
 # Stop DHCPCD from managing interfaces

@@ -13,12 +13,12 @@ sudo apt-get install -y alfred
 
 echo "-- Setting up batman-adv mesh networking --"
 crontab -r
-mkdir -p ~/bin
-sudo curl -o ~/bin/wlan0.mesh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/wlan0.mesh
-sudo curl -o ~/bin/setup-mesh-network.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/setup-mesh-network.sh
-sudo chmod +x ~/bin/setup-mesh-network.sh
-sudo curl -o ~/bin/start-batman-adv.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/start-batman-adv.sh
-sudo chmod +x ~/bin/start-batman-adv.sh
+sudo mkdir -p /usr/local/bin/cs10-mesh-network/
+sudo curl -o /usr/local/bin/cs10-mesh-network/wlan0.mesh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/wlan0.mesh
+sudo curl -o /usr/local/bin/cs10-mesh-network/setup-mesh-network.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/setup-mesh-network.sh
+sudo chmod +x /usr/local/bin/cs10-mesh-network/setup-mesh-network.sh
+sudo curl -o /usr/local/bin/cs10-mesh-network/start-batman-adv.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/start-batman-adv.sh
+sudo chmod +x /usr/local/bin/cs10-mesh-network/start-batman-adv.sh
 sudo curl -o /etc/bat-hosts https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/bat-hosts
 
 echo "-- Setting up hotspot switching service --"
