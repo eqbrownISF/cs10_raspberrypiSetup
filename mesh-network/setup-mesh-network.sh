@@ -9,7 +9,7 @@ then
 		sudo cp /etc/network/interfaces.d/wlan0.mesh /etc/network/interfaces.d/wlan0
 	fi
 else
-	sudo cp /usr/local/bin/cs10-mesh-network/wlan0.mesh /etc/network/interfaces.d/wlan0
+	sudo cp /etc/network/interfaces.d/wlan0.mesh /etc/network/interfaces.d/wlan0
 fi
 
 # Stop DHCPCD from managing interfaces
@@ -36,7 +36,7 @@ sudo ifup wlan0
 #sudo systemctl restart dhcpcd
 
 # Start batman adv interfaces
-$HOME/bin/start-batman-adv.sh
+/usr/local/bin/start-batman-adv
 
 # Setup server for visualizing network
 sleep 10
