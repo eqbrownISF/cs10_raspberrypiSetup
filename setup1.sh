@@ -21,7 +21,7 @@ echo "--Installing and updating pip--"
 
 sudo apt install python3-pip 
 echo "--pip Version--"
-pip --version
+pip3 --version
 
 # #############
 # #Install rmate for remote atom
