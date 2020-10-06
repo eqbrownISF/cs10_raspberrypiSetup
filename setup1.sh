@@ -19,9 +19,7 @@ python --version
 #############
 echo "--Installing and updating pip--"
 
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python get-pip.py
-pip install -U pip
+sudo apt-get -y install python3-pip 
 echo "--pip Version--"
 pip --version
 
