@@ -5,7 +5,7 @@
 #############
 
 echo "--Updating Raspbery Pi--"
-sudo apt update --fix-missing
+sudo apt-get update --fix-missing
 sudo apt full-upgrade
 
 echo "--python3 version--"
