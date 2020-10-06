@@ -13,7 +13,7 @@ sudo apt-get install -y alfred
 
 echo "-- Setting up batman-adv mesh networking --"
 crontab -r
-sudo mkdir -p sudo /usr/local/bin/cs10-mesh-network/
+sudo mkdir -p /usr/local/bin/cs10-mesh-network/
 sudo curl -o /usr/local/bin/cs10-mesh-network/wlan0.mesh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/wlan0.mesh
 sudo curl -o /usr/local/bin/cs10-mesh-network/setup-mesh-network.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/setup-mesh-network.sh
 sudo chmod +x /usr/local/bin/cs10-mesh-network/setup-mesh-network.sh
