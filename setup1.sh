@@ -5,6 +5,7 @@
 #############
 
 echo "--Updating Raspbery Pi--"
+sudo dpkg --configure -a
 sudo apt-get update --fix-missing
 sudo apt full-upgrade
 
