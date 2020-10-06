@@ -15,7 +15,7 @@ fi
 # Stop DHCPCD from managing interfaces
 if ! grep -Fxq "denyinterfaces wlan0 eth0 bat0" /etc/dhcpcd.conf
 then
-	echo "denyinterfaces wlan0 eth0 bat0" >> /etc/dhcpcd.conf
+	sudo echo "denyinterfaces wlan0 eth0 bat0" >> /etc/dhcpcd.conf
 fi
 
 
