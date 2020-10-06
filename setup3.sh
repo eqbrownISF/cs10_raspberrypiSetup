@@ -8,6 +8,9 @@
 echo "-- Installing Batman CTL --"
 sudo apt-get install -y batctl
 
+echo "-- Installing Alfred --"
+sudo apt-get install -y alfred
+
 echo "-- Setting up batman-adv mesh networking --"
 crontab -r
 mkdir -p ~/bin
@@ -15,7 +18,7 @@ sudo curl -o ~/bin/wlan0.mesh https://raw.githubusercontent.com/the-isf-academy/
 sudo curl -o ~/bin/setup-mesh-network.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/setup-mesh-network.sh
 sudo chmod +x ~/bin/setup-mesh-network.sh
 sudo curl -o ~/bin/start-batman-adv.sh https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/start-batman-adv.sh
-sudo chmod +x ~/bin/start-batman.sh
+sudo chmod +x ~/bin/start-batman-adv.sh
 sudo curl -o /etc/bat-hosts https://raw.githubusercontent.com/the-isf-academy/cs10_raspberrypiSetup/master/mesh-network/bat-hosts
 
 echo "-- Setting up hotspot switching service --"
