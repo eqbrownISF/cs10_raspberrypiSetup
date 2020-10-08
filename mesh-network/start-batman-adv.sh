@@ -15,9 +15,16 @@ sudo ifconfig bat0 up
 IFACE=wlan0
 read MAC < /sys/class/net/$IFACE/address
 
-# Add one to MAC address
+# Generate bat MAC address form wlan0 MAC address
 IFS=":"; set $MAC; unset IFS
-LAST_NUM="$(printf %02x $((0x$6+0x1)))"
+if [ "$6" = "ff" ];
+then
+    # Subtract one from MAC address
+    LAST_NUM="$(printf %02x $((0x$6-0x1)))"
+else
+    # Add one to MAC address
+    LAST_NUM="$(printf %02x $((0x$6+0x1)))"
+fi
 BAT_MAC="$1:$2:$3:$4:$5:$LAST_NUM"
 
 # Convert MAC address to IPc6 address
